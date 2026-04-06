@@ -17,7 +17,6 @@ load_css('style.css')
 load_html('index.html')
 
 url = "https://drive.google.com/uc?export=download&id=1CUdTboaKiqRFQT5inZvLRguUIzr0pVKK"
-p = pd.read_csv(url, low_memory=False)
 
 # Score function
 def score_row(row):
@@ -43,7 +42,8 @@ def score_row(row):
 # Load and score data
 @st.cache_data
 def load_data():
-    p = pd.read_csv('d.csv', low_memory=False)
+    url = "https://drive.google.com/uc?export=download&id=1CUdTboaKiqRFQT5inZvLRguUIzr0pVKK"
+    p = pd.read_csv(url, low_memory=False)
     p['score'] = p.apply(score_row, axis=1)
     p = p.sort_values('score', ascending=False)
     return p
