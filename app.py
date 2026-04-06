@@ -16,6 +16,9 @@ def load_html(file):
 load_css('style.css')
 load_html('index.html')
 
+url = "https://drive.google.com/uc?export=download&id=1CUdTboaKiqRFQT5inZvLRguUIzr0pVKK"
+p = pd.read_csv(url, low_memory=False)
+
 # Score function
 def score_row(row):
     count = 0
