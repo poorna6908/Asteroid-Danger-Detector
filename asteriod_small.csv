@@ -1,0 +1,13 @@
+import pandas as pd
+
+p = pd.read_csv('d.csv', low_memory=False)
+
+# Keep only important columns
+small = p[['full_name', 'neo', 'pha', 'diameter', 'moid_ld']]
+
+# Save smaller version
+small.to_csv('asteroids_small.csv', index=False)
+
+print(f"Original: {len(p)} rows")
+print(f"Small: {len(small)} rows")
+print(f"File size reduced!")
